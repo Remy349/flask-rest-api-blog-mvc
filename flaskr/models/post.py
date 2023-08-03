@@ -1,5 +1,5 @@
-from datetime import datetime
 import sqlalchemy as sa
+from datetime import datetime
 from flaskr.extensions import db
 
 
