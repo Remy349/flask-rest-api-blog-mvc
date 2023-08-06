@@ -5,6 +5,7 @@ from config import DevelopmentConfig, TestingConfig
 from flaskr.extensions import db, migrate, api
 
 from flaskr.resources.post import bp as post_bp
+from flaskr.resources.comment import bp as comment_bp
 
 
 def create_app(testing_config=None):
@@ -20,5 +21,6 @@ def create_app(testing_config=None):
     api.init_app(app)
 
     api.register_blueprint(post_bp)
+    api.register_blueprint(comment_bp)
 
     return app

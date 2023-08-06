@@ -10,3 +10,10 @@ class PostModel(db.Model):
     title = sa.Column(sa.String(200), nullable=False, unique=False)
     content = sa.Column(sa.Text, nullable=False, unique=False)
     create_at = sa.Column(sa.DateTime, default=datetime.utcnow)
+
+    comments = db.relationship(
+        "CommentModel",
+        back_populates="post",
+        lazy="dynamic",
+        cascade="all, delete",
+    )
