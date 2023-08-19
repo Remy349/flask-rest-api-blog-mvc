@@ -10,7 +10,7 @@ bp = Blueprint(
     description="Operations on comments",
 )
 
-comment_controller = CommentController()
+controller = CommentController()
 
 
 @bp.route("/post/<int:post_id>/comment")
@@ -18,10 +18,10 @@ class CommentInPostList(MethodView):
     @bp.response(200, CommentSchema(many=True))
     def get(self, post_id):
         """ Get a list of all comments in a post """
-        return comment_controller.get_comments_in_post(post_id)
+        return controller.get_comments_in_post(post_id)
 
     @bp.arguments(CommentSchema)
     @bp.response(201, CommentSchema)
     def post(self, comment_data, post_id):
         """ Create a new comment in a post """
-        return comment_controller.create_comment_in_post(comment_data, post_id)
+        return controller.create_comment_in_post(comment_data, post_id)
