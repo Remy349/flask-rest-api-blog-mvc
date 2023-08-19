@@ -1,3 +1,4 @@
+from datetime import timedelta
 import os
 from dotenv import load_dotenv
 
@@ -14,6 +15,7 @@ class Config(object):
     API_TITLE = "Blog REST API"
     API_VERSION = "v1"
     OPENAPI_VERSION = "3.0.3"
+    JWT_ACCESS_TOKEN_EXPIRES = timedelta(seconds=30)
 
 
 class DevelopmentConfig(Config):
